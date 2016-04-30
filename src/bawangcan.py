@@ -20,9 +20,6 @@ def process_category(url,driver):
         event_url= a.get_attribute("href")
         all_event_url.append(str(event_url))
 
-        # start from your target element, here for example, "header"
-        # all_children_by_css = header.find_elements_by_css_selector("*")
-        # all_children_by_xpath = header.find_elements_by_xpath(".//*")
     total=all_event_url.__len__()
     print "start to process "+str(total)+" events.."
     cnt=0
@@ -49,13 +46,11 @@ def main():
     print sys.argv
     print len(sys.argv)
     dper= sys.argv[1]
-    #dper="a3769ff774628083846a7585e9beda09e3c7885bbde8410ed6c1a21bf3e8f2c3"
     print "your dper is:"+dper
 
     opts = Options()
     opts.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.86 Safari/537.36")
     driver = webdriver.Chrome(chrome_options=opts)
-    #driver = webdriver.PhantomJS('/Users/mascure/Downloads/phantomjs-2.1.1-macosx/bin/phantomjs')
     driver.maximize_window()
 
     driver.get("http://s.dianping.com/event/119124")
